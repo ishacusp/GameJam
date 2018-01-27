@@ -62,18 +62,9 @@ public class SeedPod : MonoBehaviour, IPlayerControllable {
 
 	public void Turn (Vector2 delta)
 	{
-		Quaternion initial = aim.rotation;
+		Quaternion rotation = Quaternion.Euler (delta.y, delta.x, 0f);
 
-		Quaternion horizontalTurn = Quaternion.AngleAxis (delta.x, Vector3.up);
-		aim.rotation *= horizontalTurn;
-
-		Quaternion verticalTurn = Quaternion.AngleAxis (delta.y, aim.right);
-		aim.rotation *= verticalTurn;
-
-		Quaternion destination = Quaternion.LookRotation (aim.forward, Vector3.up);
-		float deltaAngle = Quaternion.Angle (aim.rotation, initial);
-
-		aim.rotation = Quaternion.RotateTowards (aim.rotation, destination, deltaAngle);
+		aim.rotation *= rotation;
 	}
 
 	public void GetCameraTransformDestination (out Vector3 position, out Vector3 up, out Vector3 forward)
