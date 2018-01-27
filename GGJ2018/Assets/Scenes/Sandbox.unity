@@ -136,6 +136,48 @@ Transform:
   m_Father: {fileID: 562359314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &122576974
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 6.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4242371221379972, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 606cb5dff5a29db4ead53150e945f69c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &200187378
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +637,7 @@ Camera:
   m_GameObject: {fileID: 1085766757}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.071173005, g: 0.08355016, b: 0.103, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -882,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartingSeeds: 0
-  GodMode: 0
+  GodMode: 1
 --- !u!1 &1360826180 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1991097713572846, guid: dfc3316f1a6f0f040bbc48959daeee46,
