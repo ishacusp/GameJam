@@ -39,9 +39,9 @@
         <maskSeed>1</maskSeed>
         <maskThreshold>0</maskThreshold>
         <name>Bigger Stars</name>
-        <nearColor>1 1 1 1</nearColor>
+        <nearColor>0.784314 0.784314 0.784314 1</nearColor>
         <numPoints>1000</numPoints>
-        <pointSize>2</pointSize>
+        <pointSize>3</pointSize>
         <seed>1</seed>
         <sourceBlendFactor>one</sourceBlendFactor>
         <type>points</type>
