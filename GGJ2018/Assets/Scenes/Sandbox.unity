@@ -832,6 +832,7 @@ Transform:
   - {fileID: 1472157177}
   - {fileID: 814695623}
   - {fileID: 872917427}
+  - {fileID: 2030945376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1708,6 +1709,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 52546043fbec4574fbc79f63d42815e2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2030945375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2030945376}
+  - component: {fileID: 2030945377}
+  m_Layer: 0
+  m_Name: Planet Namer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2030945376
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2030945375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 910896015}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2030945377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2030945375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f482e8091ebb4f11a0c94f31f7564cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleNames: []
+  names: {fileID: 4900000, guid: 6cea3657d6084f2488430d5a379854d7, type: 3}
 --- !u!1 &2078872194
 GameObject:
   m_ObjectHideFlags: 0
