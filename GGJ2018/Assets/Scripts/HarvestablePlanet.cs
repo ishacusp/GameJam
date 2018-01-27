@@ -6,7 +6,7 @@ public class HarvestablePlanet : MonoBehaviour {
 	public int SeedYield;
 
 	new private Renderer renderer;
-	private bool harvested;
+	public bool Harvested { get; private set; }
 
 	public Bounds Bounds {
 		get {
@@ -21,11 +21,11 @@ public class HarvestablePlanet : MonoBehaviour {
 	}
 
 	void OnSeeded(SeedPod seedPod) {
-		if (harvested)
+		if (Harvested)
 			return;
 		
 		SeedControl.SceneInstance.AddSeeds (SeedYield);
-		harvested = true;
+		Harvested = true;
 
 		GoalControl.SceneInstance.HarvestPlanet (this);
 	}
