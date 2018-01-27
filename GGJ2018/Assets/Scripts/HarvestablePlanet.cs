@@ -6,9 +6,11 @@ public class HarvestablePlanet : MonoBehaviour {
 	public int SeedYield;
 
 	private bool harvested;
+	public string planetName;
 
 	void Start() {
 		GoalControl.SceneInstance.RegisterPlanet (this);
+		planetName = PlanetNamer.Instance.getName ();
 	}
 
 	void OnSeeded(SeedPod seedPod) {
