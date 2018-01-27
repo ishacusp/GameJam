@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boundary
+  - Black Hole
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Black Hole
   - 
   - 
   - 
