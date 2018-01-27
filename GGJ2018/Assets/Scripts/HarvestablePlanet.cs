@@ -5,9 +5,19 @@ using UnityEngine;
 public class HarvestablePlanet : MonoBehaviour {
 	public int SeedYield;
 
+	private bool harvested;
+
+	void Start() {
+		GoalControl.SceneInstance.RegisterPlanet (this);
+	}
+
 	void OnSeeded(SeedPod seedPod) {
+		if (harvested)
+			return;
+		
 		SeedControl.SceneInstance.AddSeeds (SeedYield);
-		SeedYield = 0;
-		//TODO visual display to reflect harvesting
+		harvested = true;
+
+		GoalControl.SceneInstance.HarvestPlanet (this);
 	}
 }

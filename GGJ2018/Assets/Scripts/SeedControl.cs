@@ -18,7 +18,8 @@ public class SeedControl : MonoBehaviour {
 			
 			seeds = value;
 
-			SeedCountUpdated ();
+			if (SeedCountUpdated != null)
+				SeedCountUpdated ();
 		}
 	}
 

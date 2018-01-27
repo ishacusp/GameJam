@@ -17,6 +17,6 @@ public class SeedDisplay : MonoBehaviour {
 	}
 
 	void UpdateDisplay() {
-		Display.text = string.Format ("Seeds remaining: {0}", SeedControl.SceneInstance.Seeds);
+		Display.text = string.Format ("Seeds Remaining: {0}", SeedControl.SceneInstance.Seeds);
 	}
 }
