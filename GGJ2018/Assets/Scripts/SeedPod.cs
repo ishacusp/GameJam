@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class SeedPod : MonoBehaviour, IPlayerControllable {
+public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable {
 	[HideInInspector] public CannonPlant Creator;
 	public Vector3 Velocity;
 	public CannonPlant GrowOnLanding;
 
 	private Transform aim;
+
+	private HashSet<BlackHole> pulledBy = new HashSet<BlackHole>();
 
 	private Rigidbody cachedRigidbody;
 	new private Rigidbody rigidbody {
@@ -27,6 +29,12 @@ public class SeedPod : MonoBehaviour, IPlayerControllable {
 	}
 
 	void FixedUpdate() {
+		//Hit the brakes if it's out of all gravity wells
+		if (pulledBy.Count == 0) {
+			Vector3 clampedVelocity = Vector3.ClampMagnitude (Velocity, GameParametersControl.ProjectileSpeed);
+			Velocity = Vector3.MoveTowards (Velocity, clampedVelocity, GameParametersControl.ProjectileOverspeedFriction * Time.deltaTime);
+		}
+
 		Vector3 destination = transform.position + (Velocity * Time.fixedDeltaTime);
 		rigidbody.MovePosition (destination);
 	}
@@ -34,6 +42,11 @@ public class SeedPod : MonoBehaviour, IPlayerControllable {
 	void OnCollisionEnter(Collision coll) {
 		if (coll.gameObject.tag == "Boundary") {
 			OnHitBoundary ();
+			return;
+		}
+
+		if (coll.gameObject.tag == "Black Hole") {
+			OnHitBlackHole ();
 			return;
 		}
 
@@ -45,6 +58,11 @@ public class SeedPod : MonoBehaviour, IPlayerControllable {
 	}
 
 	void OnHitBoundary() {
+		PlayerControl.SceneInstance.ActiveControllable = Creator;
+		Destroy (gameObject);
+	}
+
+	void OnHitBlackHole() {
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
 		Destroy (gameObject);
 	}
@@ -81,6 +99,27 @@ public class SeedPod : MonoBehaviour, IPlayerControllable {
 			transform.rotation = aim.rotation;
 			aim.localRotation = Quaternion.identity;
 		}
+	}
+
+	#endregion
+
+	#region IBlackHoleCapturable implementation
+
+	public void PullTowards (BlackHole blackHole, float pullMagnitude)
+	{		
+		if (this == null)	//Dumb check because Unity calls this even if it destroys the object
+			return;
+		
+		Vector3 pull = blackHole.transform.position - transform.position;
+		Velocity += pull.normalized * pullMagnitude;
+	}
+
+	public void OnEnterPullRegion (BlackHole blackHole) {
+		pulledBy.Add (blackHole);
+	}
+
+	public void OnExitPullRegion (BlackHole blackHole) {
+		pulledBy.Remove (blackHole);
 	}
 
 	#endregion
