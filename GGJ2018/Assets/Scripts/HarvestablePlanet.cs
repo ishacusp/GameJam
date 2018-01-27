@@ -5,7 +5,16 @@ using UnityEngine;
 public class HarvestablePlanet : MonoBehaviour {
 	public int SeedYield;
 
+	new private Renderer renderer;
 	private bool harvested;
+
+	public Bounds Bounds {
+		get {
+			if (renderer == null)
+				renderer = GetComponentInChildren<Renderer> ();
+			return renderer.bounds;
+		}
+	}
 
 	void Start() {
 		GoalControl.SceneInstance.RegisterPlanet (this);
