@@ -7,7 +7,6 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 	public Landable AttachedTo;
 	public Transform CannonHead;
 	public SeedPod SeedPodProjectile;
-	public float ProjectileSpeed = 2f;
 
 	public float MinAngleDownward = 20f;
 	public float MaxAngleDownward = 120f;
@@ -64,9 +63,11 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 	}
 
 	public void FireAction() {
-		SeedPod projectile = Instantiate<SeedPod> (SeedPodProjectile, CannonHead.transform.position, Quaternion.LookRotation (aimDirection, transform.up));
-		projectile.Velocity = aimDirection * ProjectileSpeed;
-		PlayerControl.SceneInstance.ActiveControllable = projectile;
-		projectile.Creator = this;
+		if (SeedControl.SceneInstance.UseSeed ()) {
+			SeedPod projectile = Instantiate<SeedPod> (SeedPodProjectile, CannonHead.transform.position, Quaternion.LookRotation (aimDirection, transform.up));
+			projectile.Velocity = aimDirection * GameParametersControl.ProjectileSpeed;
+			PlayerControl.SceneInstance.ActiveControllable = projectile;
+			projectile.Creator = this;
+		}
 	}
 }

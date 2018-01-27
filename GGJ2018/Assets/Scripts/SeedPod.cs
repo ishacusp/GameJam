@@ -50,6 +50,8 @@ public class SeedPod : MonoBehaviour, IPlayerControllable {
 	}
 
 	void OnLand(Landable landable, Vector3 landPoint) {
+		landable.OnSeedHit (this);
+
 		var plant = Instantiate<CannonPlant> (GrowOnLanding);
 		plant.Attach (landable, landPoint, transform.forward);
 		PlayerControl.SceneInstance.ActiveControllable = plant;
@@ -83,9 +85,11 @@ public class SeedPod : MonoBehaviour, IPlayerControllable {
 
 	public void FireAction ()
 	{
-		Velocity = aim.forward * Velocity.magnitude;
-		transform.rotation = aim.rotation;
-		aim.localRotation = Quaternion.identity;
+		if (SeedControl.SceneInstance.UseSeed ()) {
+			Velocity = aim.forward * Velocity.magnitude;
+			transform.rotation = aim.rotation;
+			aim.localRotation = Quaternion.identity;
+		}
 	}
 
 	#endregion

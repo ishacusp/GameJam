@@ -13,4 +13,8 @@ public class Landable : MonoBehaviour {
 			return collision;
 		}
 	}
+
+	public void OnSeedHit(SeedPod pod) {
+		SendMessage ("OnSeeded", pod);
+	}
 }

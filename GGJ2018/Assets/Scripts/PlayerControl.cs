@@ -13,8 +13,6 @@ public class PlayerControl : MonoBehaviour {
 	public float InputMultiplier = 1f;
 	public float CamFollowSpeedMultiplier = 5f;
 
-	public CannonPlant StartPlant;
-
 	private Transform cameraTarget;
 
 	public IPlayerControllable ActiveControllable;
@@ -32,9 +30,6 @@ public class PlayerControl : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 
 		cameraTarget = new GameObject ("Camera Target").transform;
-
-		if (StartPlant != null)
-			ActiveControllable = StartPlant;
 	}
 
 	void Update() {
