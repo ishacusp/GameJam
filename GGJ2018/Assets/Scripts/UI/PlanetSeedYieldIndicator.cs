@@ -27,7 +27,7 @@ public class PlanetSeedYieldIndicator : MonoBehaviour {
 			return;
 		}
 
-		PlanetNameDisplay.text = planet.name;
+		PlanetNameDisplay.text = planet.planetName;
 		SeedYieldDisplay.text = string.Format ("{0} Seed Yield", planet.SeedYield);
 
 		transform.position = planet.transform.position + Camera.main.transform.up * (planet.Bounds.extents.x + 0.25f);
