@@ -33,6 +33,9 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void Update() {
+		if (PauseControl.SceneInstance != null && PauseControl.SceneInstance.Paused)
+			return;
+
 		Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
 		if (ActiveControllable != null) {
