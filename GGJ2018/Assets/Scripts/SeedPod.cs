@@ -63,6 +63,7 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	}
 
 	void OnHitBlackHole() {
+		NotificationControl.SceneInstance.PostNotification ("Black holes really suck, huh?", Color.magenta);
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
 		Destroy (gameObject);
 	}
