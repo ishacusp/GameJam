@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Boundary
   - Black Hole
+  - Earth
+  - Red Planet
   layers:
   - Default
   - TransparentFX
