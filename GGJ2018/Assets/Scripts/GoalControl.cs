@@ -53,5 +53,7 @@ public class GoalControl : MonoBehaviour {
 	public void HarvestedAllPlanets() {
 		if (AllPlanetsHarvested != null)
 			AllPlanetsHarvested ();
+		
+		NotificationControl.SceneInstance.PostNotification ("Harvested entire system! On to the next...");
 	}
 }
