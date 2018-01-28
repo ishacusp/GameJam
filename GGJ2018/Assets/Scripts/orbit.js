@@ -3,7 +3,7 @@ public var center : Transform;
 public var axis   : Vector3 = Vector3.up;
 //public var radius;
 //public var radiusSpeed = 0.5;
-public var rotationSpeed = 80.0;
+public var rotationSpeed = 6.0;
 
 function Start() {
 //	if (radius == 0) {

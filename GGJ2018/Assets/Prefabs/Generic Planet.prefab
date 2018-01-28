@@ -140,7 +140,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1669185984750524}
   m_LocalRotation: {x: 0.13952348, y: -0.41334528, z: 0.06425604, w: 0.8975244}
-  m_LocalPosition: {x: 0.09, y: 1.4, z: 0.11}
+  m_LocalPosition: {x: 0.09, y: 1.21, z: 0.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224149302330620964}
@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148958595270236}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.24, y: 2.354, z: -8.13}
+  m_LocalPosition: {x: 6.22, y: 2.88, z: 9.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4725392812034148}
@@ -169,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1901823438329806}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4694583701922948}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae661d780d7889d44b9e7c5ad4259c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SeedYield: 0
+  SeedYield: 2
   planetName: 
 --- !u!114 &114427078503429388
 MonoBehaviour:
