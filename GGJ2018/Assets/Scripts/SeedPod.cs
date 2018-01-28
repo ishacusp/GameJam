@@ -9,6 +9,7 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	public CannonPlant GrowOnLanding;
 	public GameObject InfestOnLanding;
 	public SeedPodHusk HuskPrefab;
+	public bool Dummy;
 
 	private Transform aim;
 
@@ -93,7 +94,10 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 
 		var plant = Instantiate<CannonPlant> (GrowOnLanding);
 		plant.Attach (landable, landPoint, transform.forward);
-		PlayerControl.SceneInstance.ActiveControllable = plant;
+
+		if (!Dummy) {
+			PlayerControl.SceneInstance.ActiveControllable = plant;
+		}
 
 		var plantParticles = GetComponentInChildren<ParticleSystem> ();
 		plantParticles.transform.SetParent (landable.transform);
