@@ -7,6 +7,7 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	[HideInInspector] public CannonPlant Creator;
 	public Vector3 Velocity;
 	public CannonPlant GrowOnLanding;
+	public GameObject InfestOnLanding;
 
 	private Transform aim;
 
@@ -76,6 +77,8 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 
 	void OnLand(Landable landable, Vector3 landPoint) {
 		landable.OnSeedHit (this);
+
+		landable.Infest (landPoint, InfestOnLanding);
 
 		var plant = Instantiate<CannonPlant> (GrowOnLanding);
 		plant.Attach (landable, landPoint, transform.forward);
