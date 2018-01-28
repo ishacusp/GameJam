@@ -40,14 +40,16 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	}
 
 	void OnCollisionEnter(Collision coll) {
-		if (coll.gameObject.tag == "Boundary") {
-			OnHitBoundary ();
-			return;
-		}
-
-		if (coll.gameObject.tag == "Black Hole") {
+		switch (coll.gameObject.tag) {
+		case "Sun":
+			OnHitSun ();
+			break;
+		case "Black Hole":
 			OnHitBlackHole ();
-			return;
+			break;
+		case "Boundary":
+			OnHitObstacle ();
+			break;
 		}
 
 		var landable = coll.gameObject.GetComponent<Landable> ();
@@ -57,13 +59,17 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		}
 	}
 
-	void OnHitBoundary() {
-		PlayerControl.SceneInstance.ActiveControllable = Creator;
-		Destroy (gameObject);
+	void OnHitSun() {
+		NotificationControl.SceneInstance.PostNotification ("Watch it, Icarus.", new Color (1f, 0.65f, 0.13f));
+		OnHitObstacle ();
 	}
 
 	void OnHitBlackHole() {
 		NotificationControl.SceneInstance.PostNotification ("Black holes really suck, huh?", Color.magenta);
+		OnHitObstacle ();
+	}
+
+	void OnHitObstacle() {
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
 		Destroy (gameObject);
 	}
