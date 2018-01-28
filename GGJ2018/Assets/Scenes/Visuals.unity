@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 5a4e7327f5ab248c188cd519e96d7408, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 03548a1451e7a433eab57993afd1661d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -820,8 +820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4535604d8d64e4b44a7bbebeaa2e25a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameUIRoot: {fileID: 0}
-  PauseUIRoot: {fileID: 0}
+  GameUIRoot: {fileID: 1502464325}
+  PauseUIRoot: {fileID: 1791208349}
   ResumeButton: {fileID: 0}
 --- !u!1001 &896477680
 Prefab:
@@ -1167,8 +1167,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931ed02c188a64ac6b6d8104350e08e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionDuration: 8
-  pauseDuration: 2
+  material: {fileID: 2100000, guid: 03548a1451e7a433eab57993afd1661d, type: 2}
+  transitionDuration: 3
+  pauseDuration: 0
+  materials:
+  - {fileID: 2100000, guid: 5a4e7327f5ab248c188cd519e96d7408, type: 2}
+  - {fileID: 2100000, guid: 4fe1695fcaa2e44b0a0bb6f9bc15fd84, type: 2}
+  - {fileID: 2100000, guid: 80b87bc827d174d9eb1e110a1e86ab8b, type: 2}
+  currentSkyboxIndex: 0
 --- !u!4 &1222910684
 Transform:
   m_ObjectHideFlags: 0

@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SkyboxCrossfade : MonoBehaviour {
-	private Material material;
-	public float transitionDuration = 8; // seconds
-	public float pauseDuration = 2; // seconds
+	public Material material;
+	public float transitionDuration = 2; // seconds
+	public float pauseDuration = 0; // seconds
 	private DateTime startTime;
 	private string state = "transitioning";
+	public Material[] materials;
+	public int currentSkyboxIndex = 0;
+	private string[] sides = new string[]{"Front", "Back", "Left", "Right", "Up", "Down"};
 
 //	void Update
 		
@@ -23,16 +26,8 @@ public class SkyboxCrossfade : MonoBehaviour {
 			float delta = (float)DateTime.Now.Subtract (startTime).TotalSeconds;
 			if (delta <= transitionDuration) {
 				// mid transition
-
-				// this is not pretty or flexible ik :(
-//				material.shader._FrontTex = material.shader._FrontTex2;
-//				material.shader._BackTex = material.shader._FrontTex2;
-//				material.shader._LeftTex = material.shader._FrontTex2;
-//				material.shader._RightTex = material.shader._FrontTex2;
-//				material.shader._UpTex = material.shader._UpTex2;
-//				material.shader._DownTex = material.shader._DownTex2;
 				material.SetFloat ("_Blend", delta / transitionDuration);
-				Debug.Log (delta / transitionDuration);
+//				Debug.Log (delta / transitionDuration);
 			} else {
 				// finished transition
 				state = "pausing";
@@ -42,6 +37,15 @@ public class SkyboxCrossfade : MonoBehaviour {
 			if (delta >= pauseDuration) {
 				startTime = DateTime.Now;
 				state = "transitioning";
+
+				// swap the skyboxes
+				material.SetFloat ("_Blend", 0);
+				currentSkyboxIndex = (currentSkyboxIndex + 1) % materials.Length;
+				Material newMaterial = materials[currentSkyboxIndex];
+				foreach (string side in sides){
+					material.SetTexture("_" + side + "Tex", material.GetTexture("_" + side + "Tex2"));
+					material.SetTexture("_" + side + "Tex2", newMaterial.GetTexture("_" + side + "Tex"));
+				}
 			}
 		}
 	}

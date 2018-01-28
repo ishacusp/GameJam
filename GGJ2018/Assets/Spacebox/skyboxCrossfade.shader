@@ -2,18 +2,18 @@
 Properties {
     _Tint ("Tint Color", Color) = (.5, .5, .5, .5)
     _Blend ("Blend", Range(0.0,1.0)) = 0.5
-    _FrontTex ("Front (+Z)", 2D) = "white" {}
-    _BackTex ("Back (-Z)", 2D) = "white" {}
-    _LeftTex ("Left (+X)", 2D) = "white" {}
-    _RightTex ("Right (-X)", 2D) = "white" {}
-    _UpTex ("Up (+Y)", 2D) = "white" {}
-    _DownTex ("Down (-Y)", 2D) = "white" {}
-    _FrontTex2("2 Front (+Z)", 2D) = "white" {}
-    _BackTex2("2 Back (-Z)", 2D) = "white" {}
-    _LeftTex2("2 Left (+X)", 2D) = "white" {}
-    _RightTex2("2 Right (-X)", 2D) = "white" {}
-    _UpTex2("2 Up (+Y)", 2D) = "white" {}
-    _DownTex2("2 Down (-Y)", 2D) = "white" {}
+    _FrontTex ("Front (+Z)", 2D) = "black" {}
+    _BackTex ("Back (-Z)", 2D) = "black" {}
+    _LeftTex ("Left (+X)", 2D) = "black" {}
+    _RightTex ("Right (-X)", 2D) = "black" {}
+    _UpTex ("Up (+Y)", 2D) = "black" {}
+    _DownTex ("Down (-Y)", 2D) = "black" {}
+    _FrontTex2("2 Front (+Z)", 2D) = "black" {}
+    _BackTex2("2 Back (-Z)", 2D) = "black" {}
+    _LeftTex2("2 Left (+X)", 2D) = "black" {}
+    _RightTex2("2 Right (-X)", 2D) = "black" {}
+    _UpTex2("2 Up (+Y)", 2D) = "black" {}
+    _DownTex2("2 Down (-Y)", 2D) = "black" {}
 }
 
 SubShader {

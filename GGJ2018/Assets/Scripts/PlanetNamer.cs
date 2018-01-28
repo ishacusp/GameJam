@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlanetNamer : MonoBehaviour {
 	public List<string> possibleNames;
-	Random random;
 
 	void Awake() {
 		if (Instance == null) {
