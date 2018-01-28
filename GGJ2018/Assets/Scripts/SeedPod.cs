@@ -8,6 +8,16 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	public Vector3 Velocity;
 	public CannonPlant GrowOnLanding;
 
+	public AudioSource _LandSound;
+	public AudioSource landSound {
+		get {
+			if (_LandSound == null)
+				_LandSound = GetComponent<AudioSource> ();
+			Debug.Log (GetComponent<AudioSource> ());
+			return _LandSound;
+		}
+	}
+
 	private Transform aim;
 
 	private HashSet<BlackHole> pulledBy = new HashSet<BlackHole>();
@@ -20,6 +30,8 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 			return cachedRigidbody;
 		}
 	}
+
+
 
 	void Start() {
 		aim = new GameObject ("Aim").transform;
@@ -80,6 +92,7 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		var plant = Instantiate<CannonPlant> (GrowOnLanding);
 		plant.Attach (landable, landPoint, transform.forward);
 		PlayerControl.SceneInstance.ActiveControllable = plant;
+		landSound.Play ();
 		Destroy (gameObject);
 	}
 
