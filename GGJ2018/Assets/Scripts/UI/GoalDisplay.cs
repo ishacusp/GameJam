@@ -16,6 +16,8 @@ public class GoalDisplay : MonoBehaviour {
 	}
 
 	void UpdateDisplay() {
-		Display.text = string.Format ("Planets Remaining: {0}", GoalControl.SceneInstance.RemainingPlanets);
+		int total = GoalControl.SceneInstance.TotalPlanets;
+		int harvested = total - GoalControl.SceneInstance.RemainingPlanets;
+		Display.text = string.Format ("{0}/{1}", harvested, total);
 	}
 }

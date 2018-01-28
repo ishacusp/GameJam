@@ -12,6 +12,8 @@ public class GoalControl : MonoBehaviour {
 		}
 	}
 
+	public int TotalPlanets { get; private set; }
+
 	public static GoalControl SceneInstance;
 
 	public delegate void GoalProgressEvent();
@@ -27,6 +29,8 @@ public class GoalControl : MonoBehaviour {
 
 	public void RegisterPlanet(HarvestablePlanet planet) {
 		remainingPlanets.Add (planet);
+
+		TotalPlanets = Mathf.Max (TotalPlanets, RemainingPlanets);
 
 		if (PlanetCountUpdated != null)
 			PlanetCountUpdated ();
