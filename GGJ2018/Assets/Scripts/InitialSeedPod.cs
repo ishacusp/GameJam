@@ -13,7 +13,8 @@ public class InitialSeedPod : MonoBehaviour {
 	void Start() {
 		SeedPod pod = GetComponent<SeedPod> ();
 
-		PlayerControl.SceneInstance.ActiveControllable = pod;
+		if (!pod.Dummy)
+			PlayerControl.SceneInstance.ActiveControllable = pod;
 
 		pod.Velocity = (Target.position - transform.position).normalized * GameParametersControl.ProjectileSpeed;
 		pod.transform.rotation = Quaternion.LookRotation (pod.Velocity, transform.up);

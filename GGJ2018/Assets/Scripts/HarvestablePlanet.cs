@@ -18,17 +18,23 @@ public class HarvestablePlanet : MonoBehaviour {
 	}
 
 	void Start() {
-		GoalControl.SceneInstance.RegisterPlanet (this);
-		planetName = PlanetNamer.Instance.getName ();
+		if (GoalControl.SceneInstance != null)
+			GoalControl.SceneInstance.RegisterPlanet (this);
+		
+		if (PlanetNamer.Instance != null)
+			planetName = PlanetNamer.Instance.getName ();
 	}
 
 	void OnSeeded(SeedPod seedPod) {
 		if (Harvested)
 			return;
-		
-		SeedControl.SceneInstance.AddSeeds (SeedYield);
+
+		if (SeedControl.SceneInstance != null)
+			SeedControl.SceneInstance.AddSeeds (SeedYield);
+	
 		Harvested = true;
 
-		GoalControl.SceneInstance.HarvestPlanet (this);
+		if (GoalControl.SceneInstance != null)
+			GoalControl.SceneInstance.HarvestPlanet (this);
 	}
 }
