@@ -104,10 +104,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4822465017537882}
   - component: {fileID: 135749849446003532}
-  - component: {fileID: 114675015129840876}
   - component: {fileID: 54113210311859568}
   - component: {fileID: 114282134903120638}
   - component: {fileID: 114751731855860310}
+  - component: {fileID: 114678733185708410}
   m_Layer: 0
   m_Name: Earth Planet
   m_TagString: Earth
@@ -336,7 +336,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1223392178522116}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.83181095, y: -1.3890393, z: -5.0595145}
+  m_LocalPosition: {x: 1.53, y: 11.86, z: -14.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4750348092496206}
@@ -784,11 +784,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d61229f48727324f843a474ac5ccb2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlanetNameDisplay: {fileID: 114713716185192358}
-  SeedYieldDisplay: {fileID: 114495134980975768}
+  DisplaySeed: {fileID: 0}
+  SeedIndicatorRegion: {fileID: 0}
   GraphicRoot: {fileID: 225898028553492798}
   VanishLimit: 4
---- !u!114 &114675015129840876
+--- !u!114 &114678733185708410
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -800,10 +800,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   center: {fileID: 0}
-  axis: {x: -1, y: 1, z: 0}
-  radius: 8
-  radiusSpeed: 0.5
-  rotationSpeed: -8
+  axis: {x: 1, y: 1, z: 0}
+  rotationSpeed: 6
 --- !u!114 &114713716185192358
 MonoBehaviour:
   m_ObjectHideFlags: 1
