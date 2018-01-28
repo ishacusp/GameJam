@@ -13,6 +13,9 @@ public class PauseControl : MonoBehaviour {
 
 	public static PauseControl SceneInstance;
 
+	public delegate void PauseEvent();
+	public event PauseEvent OnPaused, OnUnpaused;
+
 	void Awake() {
 		if (SceneInstance == null)
 			SceneInstance = this;
@@ -47,6 +50,9 @@ public class PauseControl : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.None;
 
 		Paused = true;
+
+		if (OnPaused != null)
+			OnPaused ();
 	}
 
 	void Unpause() {
@@ -63,5 +69,8 @@ public class PauseControl : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 
 		Paused = false;
+
+		if (OnUnpaused != null)
+			OnUnpaused ();
 	}
 }

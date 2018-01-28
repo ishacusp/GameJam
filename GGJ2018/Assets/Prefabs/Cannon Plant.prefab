@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4408865052970450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33199620349307286}
   - component: {fileID: 136842114109793668}
   - component: {fileID: 23017970735677344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109782887666674}
   - component: {fileID: 114310480794972794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 33457127407994828}
   - component: {fileID: 136962816354452410}
   - component: {fileID: 23375781657996716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,6 @@ MonoBehaviour:
   CannonHead: {fileID: 4408865052970450}
   SeedPodProjectile: {fileID: 114396472363156902, guid: dfc3316f1a6f0f040bbc48959daeee46,
     type: 2}
-  ProjectileSpeed: 2
   MinAngleDownward: 10
   MaxAngleDownward: 90
 --- !u!136 &136842114109793668
