@@ -82,8 +82,10 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 		if (currentAnimation != null && currentAnimation.IsPlaying())
 			return;
 		
-		if (SeedControl.SceneInstance.UseSeed ()) {
-			ShootAnimation (() => {
+		if (SeedControl.SceneInstance.Seeds > 0) {
+			currentAnimation = ShootAnimation (() => {
+				SeedControl.SceneInstance.UseSeed ();
+
 				var shotParticles = CannonHead.GetComponentInChildren<ParticleSystem>();
 				if (shotParticles != null)
 					shotParticles.Play();
