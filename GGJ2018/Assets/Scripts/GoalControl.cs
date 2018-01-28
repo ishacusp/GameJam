@@ -38,7 +38,7 @@ public class GoalControl : MonoBehaviour {
 
 	public void HarvestPlanet(HarvestablePlanet planet) {
 
-		NotificationControl.SceneInstance.PostNotification (string.Format ("Harvested {0}!", planet.planetName));
+		NotificationControl.SceneInstance.PostNotification (string.Format ("Harvested {0} seeds from {1}!", planet.SeedYield, planet.planetName));
 
 		remainingPlanets.Remove (planet);
 
@@ -46,8 +46,12 @@ public class GoalControl : MonoBehaviour {
 			PlanetCountUpdated ();
 		
 		if (remainingPlanets.Count == 0) {
-			if (AllPlanetsHarvested != null)
-				AllPlanetsHarvested ();
+			HarvestedAllPlanets ();
 		}
+	}
+
+	public void HarvestedAllPlanets() {
+		if (AllPlanetsHarvested != null)
+			AllPlanetsHarvested ();
 	}
 }
