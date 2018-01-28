@@ -23,7 +23,7 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 
 	private Vector3 aimDirection;
 
-	private Tween appearTween;
+	private Tween currentAnimation;
 
 	void Start() {
 		if (AttachedTo != null) {
@@ -34,7 +34,7 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 		aimDirection = transform.forward;
 		growSound.Play ();
 
-		appearTween = transform.DOScale (Vector3.zero, 0.3f).From ().SetEase (Ease.OutBack);
+		currentAnimation = transform.DOScale (Vector3.zero, 0.3f).From ().SetEase (Ease.OutBack);
 	}
 
 	public void Attach(Landable to, Vector3 location, Vector3 forward) {
@@ -79,15 +79,32 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 	}
 
 	public void FireAction() {
-		if (appearTween != null && appearTween.IsPlaying())
+		if (currentAnimation != null && currentAnimation.IsPlaying())
 			return;
 		
 		if (SeedControl.SceneInstance.UseSeed ()) {
-			SeedPod projectile = Instantiate<SeedPod> (SeedPodProjectile, CannonHead.transform.position, Quaternion.LookRotation (aimDirection, transform.up));
-			projectile.Velocity = aimDirection * GameParametersControl.ProjectileSpeed;
-			PlayerControl.SceneInstance.ActiveControllable = projectile;
-			projectile.Creator = this;
+			ShootAnimation (() => {
+				var shotParticles = CannonHead.GetComponentInChildren<ParticleSystem>();
+				if (shotParticles != null)
+					shotParticles.Play();
+				
+				SeedPod projectile = Instantiate<SeedPod> (SeedPodProjectile, CannonHead.transform.position, Quaternion.LookRotation (aimDirection, transform.up));
+				projectile.Velocity = aimDirection * GameParametersControl.ProjectileSpeed;
+				PlayerControl.SceneInstance.ActiveControllable = projectile;
+				projectile.Creator = this;
+			});
 		}
+	}
+
+	private Tween ShootAnimation(TweenCallback onShoot) {
+		var shootSequence = DOTween.Sequence ();
+
+		shootSequence.Append (CannonHead.transform.DOScale (new Vector3 (0.25f, 0.25f, -0.5f), 0.2f).SetRelative().SetEase (Ease.OutQuad));
+		shootSequence.Append (CannonHead.transform.DOScale (new Vector3 (-0.5f, -0.5f, 1f), 0.05f).SetRelative().SetEase (Ease.InQuad));
+		shootSequence.AppendCallback (onShoot);
+		shootSequence.Append (CannonHead.transform.DOScale (new Vector3 (0.25f, 0.25f, -0.5f), 0.1f).SetRelative ().SetEase (Ease.InOutQuad));
+
+		return shootSequence;
 	}
 
 	public void SecondaryAction() {
