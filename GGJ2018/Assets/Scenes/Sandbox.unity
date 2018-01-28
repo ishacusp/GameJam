@@ -1011,7 +1011,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &941284051
+--- !u!1001 &1025171907
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1054,7 +1054,8 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 46063445}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 420c6985428bd4436ac64a7e3c2230f5, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1085766757
@@ -1817,7 +1818,7 @@ RectTransform:
 GameObject:
   m_PrefabParentObject: {fileID: 1368792095036648, guid: 420c6985428bd4436ac64a7e3c2230f5,
     type: 2}
-  m_PrefabInternal: {fileID: 941284051}
+  m_PrefabInternal: {fileID: 1025171907}
 --- !u!114 &1546659230
 MonoBehaviour:
   m_ObjectHideFlags: 0
