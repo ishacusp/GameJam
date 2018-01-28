@@ -18,10 +18,11 @@ public class SkyboxCrossfade : MonoBehaviour {
 	void Start() {
 		material = RenderSettings.skybox;
 		startTime = DateTime.Now;
+		if (material == null)
+			state = "missing";
 	}
 
 	void Update() {
-		
 		if (state == "transitioning") {
 			float delta = (float)DateTime.Now.Subtract (startTime).TotalSeconds;
 			if (delta <= transitionDuration) {
