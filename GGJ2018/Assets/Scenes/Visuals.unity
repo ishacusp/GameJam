@@ -77,15 +77,18 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &46063444
 GameObject:
@@ -685,10 +690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656bd89fb1e3a9446885e0b9824c2ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameUIRoot: {fileID: 1502464325}
-  PauseUIRoot: {fileID: 1791208349}
-  ResumeButton: {fileID: 2078872196}
-  <Paused>k__BackingField: 0
 --- !u!1001 &896477680
 Prefab:
   m_ObjectHideFlags: 0
@@ -846,11 +847,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &1085766761
 Transform:
   m_ObjectHideFlags: 0
@@ -904,6 +905,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -919,6 +921,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -1954,6 +1957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f482e8091ebb4f11a0c94f31f7564cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  possibleNames: []
+  names: {fileID: 4900000, guid: 6cea3657d6084f2488430d5a379854d7, type: 3}
 --- !u!1001 &2127213640
 Prefab:
   m_ObjectHideFlags: 0
