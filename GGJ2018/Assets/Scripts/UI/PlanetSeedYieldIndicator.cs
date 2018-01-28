@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-[ExecuteInEditMode]
 public class PlanetSeedYieldIndicator : MonoBehaviour {
-	public Text PlanetNameDisplay, SeedYieldDisplay;
+	public RectTransform DisplaySeed;
+	public RectTransform SeedIndicatorRegion;
 	public CanvasGroup GraphicRoot;
 	public float VanishLimit;
 
 	private bool visible;
 	private Tween visibilityTween;
 	private HarvestablePlanet planet;
+	private bool generatedSeeds;
 
 	void Start() {
 		planet = GetComponentInParent<HarvestablePlanet> ();
@@ -27,8 +28,12 @@ public class PlanetSeedYieldIndicator : MonoBehaviour {
 			return;
 		}
 
-		PlanetNameDisplay.text = planet.planetName;
-		SeedYieldDisplay.text = string.Format ("{0} Seed Yield", planet.SeedYield);
+		if (!generatedSeeds) {
+			for (int i = 0; i < planet.SeedYield; ++i) {
+				Instantiate (DisplaySeed, SeedIndicatorRegion);
+			}
+			generatedSeeds = true;
+		}
 
 		transform.position = planet.transform.position + Camera.main.transform.up * (planet.Bounds.extents.x + 0.25f);
 
