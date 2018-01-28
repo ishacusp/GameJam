@@ -39,6 +39,10 @@ public class SeedControl : MonoBehaviour {
 		Seeds = StartingSeeds;
 	}
 
+	public bool CanUseSeed() {
+		return (Seeds > 0 || GodMode);
+	}
+
 	public bool UseSeed() {
 		if (Seeds > 0) {
 			--Seeds;

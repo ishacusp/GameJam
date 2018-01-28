@@ -82,7 +82,7 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 		if (currentAnimation != null && currentAnimation.IsPlaying())
 			return;
 		
-		if (SeedControl.SceneInstance.Seeds > 0) {
+		if (SeedControl.SceneInstance.CanUseSeed()) {
 			currentAnimation = ShootAnimation (() => {
 				SeedControl.SceneInstance.UseSeed ();
 
