@@ -55,8 +55,6 @@ GameObject:
   - component: {fileID: 4411195907321374}
   - component: {fileID: 114775921900577718}
   - component: {fileID: 135685255647756708}
-  - component: {fileID: 114286800569656970}
-  - component: {fileID: 114467383807470380}
   - component: {fileID: 114168663469380462}
   - component: {fileID: 54052598305640302}
   m_Layer: 0
@@ -232,7 +230,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239604264569684}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.08, y: -3.56, z: 2.31}
+  m_LocalPosition: {x: 4.91, y: -12.35, z: 3.94}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4847703840770352}
@@ -495,33 +493,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeedYield: 1
   planetName: 
---- !u!114 &114286800569656970
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1239604264569684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0087ed54ddecf48b6a2b44714d6ebc5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  center: {fileID: 0}
-  axis: {x: 1, y: 1, z: 1}
-  radius: 5
-  radiusSpeed: 0.5
-  rotationSpeed: 8
---- !u!114 &114467383807470380
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1239604264569684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87a28ca045dd7054b89f212d46f30872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114548557570104924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -641,8 +612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d61229f48727324f843a474ac5ccb2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlanetNameDisplay: {fileID: 114741603139229602}
-  SeedYieldDisplay: {fileID: 114105138348083770}
+  DisplaySeed: {fileID: 0}
+  SeedIndicatorRegion: {fileID: 0}
   GraphicRoot: {fileID: 225972954546668958}
   VanishLimit: 4
 --- !u!135 &135685255647756708
