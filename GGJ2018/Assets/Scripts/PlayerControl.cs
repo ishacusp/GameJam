@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public interface IPlayerControllable {
 	void Turn (Vector2 delta);
@@ -13,6 +15,7 @@ public class PlayerControl : MonoBehaviour {
 
 	public float InputMultiplier = 1f;
 	public float CamFollowSpeedMultiplier = 5f;
+	public Button RestartButton;
 
 	private Transform cameraTarget;
 
@@ -31,11 +34,17 @@ public class PlayerControl : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 
 		cameraTarget = new GameObject ("Camera Target").transform;
+
+		if (RestartButton != null)
+			RestartButton.onClick.AddListener (Restart);
 	}
 
 	void Update() {
 		if (PauseControl.SceneInstance != null && PauseControl.SceneInstance.Paused)
 			return;
+
+		if (Input.GetKeyDown (KeyCode.R))
+			Restart ();
 
 		Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
@@ -76,5 +85,9 @@ public class PlayerControl : MonoBehaviour {
 			Camera.main.transform.position = 
 				Vector3.MoveTowards (Camera.main.transform.position, cameraTarget.transform.position, camPositionOffset * CamFollowSpeedMultiplier * Time.deltaTime);
 		}
+	}
+
+	void Restart() {
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
 	}
 }

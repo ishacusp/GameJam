@@ -79,6 +79,10 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 
 	void ReturnControl() {
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
+
+		if (!SeedControl.SceneInstance.CanUseSeed()) 
+			NotificationControl.SceneInstance.PostNotification ("No more seeds! Press R to restart.");
+		
 		Destroy (gameObject);
 	}
 
