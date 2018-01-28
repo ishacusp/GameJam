@@ -746,6 +746,11 @@ Prefab:
       propertyPath: center
       value: 
       objectReference: {fileID: 1297057098}
+    - target: {fileID: 114001552289726648, guid: 030c5e9feacf248919e002dc9b7d0768,
+        type: 2}
+      propertyPath: axis.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 030c5e9feacf248919e002dc9b7d0768, type: 2}
   m_IsPrefabParent: 0
@@ -792,6 +797,7 @@ MonoBehaviour:
   GameUIRoot: {fileID: 1502464325}
   PauseUIRoot: {fileID: 1791208349}
   ResumeButton: {fileID: 2078872196}
+<<<<<<< Updated upstream
 --- !u!1001 &896477680
 Prefab:
   m_ObjectHideFlags: 0
@@ -838,6 +844,8 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 802b235930d2748caa8cdc69c8635c1d, type: 3}
   m_IsPrefabParent: 0
+=======
+>>>>>>> Stashed changes
 --- !u!1 &910896014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,6 +1226,23 @@ Transform:
   m_Father: {fileID: 910896015}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1146348383 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1368792095036648, guid: 420c6985428bd4436ac64a7e3c2230f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1844597072}
+--- !u!114 &1146348387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146348383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468666eb34db67546a37e8cf47365381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1491317370}
 --- !u!1 &1222910682
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1664,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4862761165505142, guid: 96d035115db7ade4faab045e65d1dff9,
     type: 2}
   m_PrefabInternal: {fileID: 1472157176}
+--- !u!4 &1491317370 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4822465017537882, guid: 6d18bed4566b1465ea0a32719b320c6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1689565596}
 --- !u!1 &1502464325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,8 +2303,7 @@ Prefab:
       propertyPath: m_Name
       value: Bean Sprout
       objectReference: {fileID: 0}
-    - target: {fileID: 114280938335339632, guid: 420c6985428bd4436ac64a7e3c2230f5,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: Target
       value: 
       objectReference: {fileID: 562359314}
