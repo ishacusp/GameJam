@@ -33,9 +33,10 @@ public class GoalControl : MonoBehaviour {
 	}
 
 	public void HarvestPlanet(HarvestablePlanet planet) {
-		remainingPlanets.Remove (planet);
 
 		NotificationControl.SceneInstance.PostNotification (string.Format ("Harvested {0}!", planet.planetName));
+
+		remainingPlanets.Remove (planet);
 
 		if (PlanetCountUpdated != null)
 			PlanetCountUpdated ();
