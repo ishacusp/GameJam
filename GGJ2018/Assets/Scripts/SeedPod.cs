@@ -8,6 +8,7 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	public Vector3 Velocity;
 	public CannonPlant GrowOnLanding;
 	public GameObject InfestOnLanding;
+	public SeedPodHusk HuskPrefab;
 
 	private Transform aim;
 
@@ -121,6 +122,11 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	public void FireAction ()
 	{
 		if (SeedControl.SceneInstance.UseSeed ()) {
+			if (HuskPrefab != null) {
+				var husk = Instantiate<SeedPodHusk> (HuskPrefab, transform.position, transform.rotation);
+				husk.Velocity = Velocity;
+			}
+
 			Velocity = aim.forward * Velocity.magnitude;
 			transform.rotation = aim.rotation;
 			aim.localRotation = Quaternion.identity;
