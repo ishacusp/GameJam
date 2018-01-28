@@ -9,6 +9,15 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 	public Transform CannonHead;
 	public SeedPod SeedPodProjectile;
 
+	public AudioSource _GrowSound;
+	public AudioSource growSound {
+		get {
+			if (_GrowSound == null)
+				_GrowSound = GetComponent<AudioSource> ();
+			return _GrowSound;
+		}
+	}
+
 	public float MinAngleDownward = 20f;
 	public float MaxAngleDownward = 120f;
 
@@ -23,6 +32,7 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 		}
 
 		aimDirection = transform.forward;
+		growSound.Play ();
 
 		appearTween = transform.DOScale (Vector3.zero, 0.3f).From ().SetEase (Ease.OutBack);
 	}

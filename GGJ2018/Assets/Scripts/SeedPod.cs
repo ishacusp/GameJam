@@ -9,16 +9,6 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 	public CannonPlant GrowOnLanding;
 	public GameObject InfestOnLanding;
 
-	public AudioSource _LandSound;
-	public AudioSource landSound {
-		get {
-			if (_LandSound == null)
-				_LandSound = GetComponent<AudioSource> ();
-			Debug.Log (GetComponent<AudioSource> ());
-			return _LandSound;
-		}
-	}
-
 	private Transform aim;
 
 	private HashSet<BlackHole> pulledBy = new HashSet<BlackHole>();
@@ -82,6 +72,10 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		ReturnControl ();
 	}
 
+	public void OnOutOfBounds() {
+		ReturnControl ();
+	}
+
 	void ReturnControl() {
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
 		Destroy (gameObject);
@@ -95,7 +89,16 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		var plant = Instantiate<CannonPlant> (GrowOnLanding);
 		plant.Attach (landable, landPoint, transform.forward);
 		PlayerControl.SceneInstance.ActiveControllable = plant;
-		landSound.Play ();
+
+		var plantParticles = GetComponentInChildren<ParticleSystem> ();
+		plantParticles.transform.SetParent (landable.transform);
+		plantParticles.Play ();
+		Destroy (plantParticles, 2f);
+
+		var trail = GetComponentInChildren<TrailRenderer> ();
+		trail.transform.SetParent (null);
+		Destroy (trail, trail.time);
+
 		Destroy (gameObject);
 	}
 
