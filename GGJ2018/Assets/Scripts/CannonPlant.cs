@@ -71,4 +71,7 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 			projectile.Creator = this;
 		}
 	}
+
+	public void SecondaryAction() {
+	}
 }

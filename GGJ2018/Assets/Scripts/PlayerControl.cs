@@ -6,6 +6,7 @@ public interface IPlayerControllable {
 	void Turn (Vector2 delta);
 	void GetCameraTransformDestination (out Vector3 position, out Vector3 up, out Vector3 forward);
 	void FireAction();
+	void SecondaryAction();
 }
 
 public class PlayerControl : MonoBehaviour {
@@ -43,6 +44,8 @@ public class PlayerControl : MonoBehaviour {
 
 			if (Input.GetMouseButtonDown (0)) {
 				ActiveControllable.FireAction ();
+			} else if (Input.GetMouseButtonDown (1)) {
+				ActiveControllable.SecondaryAction ();
 			}
 		}
 	}

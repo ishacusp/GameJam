@@ -48,7 +48,7 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 			OnHitBlackHole ();
 			break;
 		case "Boundary":
-			OnHitObstacle ();
+			ReturnControl ();
 			break;
 		}
 
@@ -61,15 +61,15 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 
 	void OnHitSun() {
 		NotificationControl.SceneInstance.PostNotification ("Watch it, Icarus.", new Color (1f, 0.65f, 0.13f));
-		OnHitObstacle ();
+		ReturnControl ();
 	}
 
 	void OnHitBlackHole() {
 		NotificationControl.SceneInstance.PostNotification ("Black holes really suck, huh?", Color.magenta);
-		OnHitObstacle ();
+		ReturnControl ();
 	}
 
-	void OnHitObstacle() {
+	void ReturnControl() {
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
 		Destroy (gameObject);
 	}
@@ -105,6 +105,12 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 			Velocity = aim.forward * Velocity.magnitude;
 			transform.rotation = aim.rotation;
 			aim.localRotation = Quaternion.identity;
+		}
+	}
+
+	public void SecondaryAction() {
+		if (Creator != null) {
+			ReturnControl ();
 		}
 	}
 
