@@ -18,24 +18,28 @@ public class SkyboxCrossfade : MonoBehaviour {
 	void Start() {
 		material = RenderSettings.skybox;
 		startTime = DateTime.Now;
+
+		// if no skybox, don't do anything
 		if (material == null)
 			state = "missing";
+		// don't do anything if it's the wrong skybox type
+		else if (material.shader != Shader.Find( "Skybox/Blended" ))
+			state = "incompatible";
 	}
 
 	void Update() {
 		if (state == "transitioning") {
 			float delta = (float)DateTime.Now.Subtract (startTime).TotalSeconds;
-			if (delta <= transitionDuration) {
+			if (delta < transitionDuration) {
 				// mid transition
 				material.SetFloat ("_Blend", delta / transitionDuration);
-//				Debug.Log (delta / transitionDuration);
 			} else {
 				// finished transition
 				state = "pausing";
 			}
 		} else if (state == "pausing") {
 			double delta = DateTime.Now.Subtract (startTime).TotalSeconds;
-			if (delta >= pauseDuration) {
+			if (delta > pauseDuration) {
 				startTime = DateTime.Now;
 				state = "transitioning";
 
