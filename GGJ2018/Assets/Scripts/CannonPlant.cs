@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CannonPlant : MonoBehaviour, IPlayerControllable {
 
@@ -13,6 +14,8 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 
 	private Vector3 aimDirection;
 
+	private Tween appearTween;
+
 	void Start() {
 		if (AttachedTo != null) {
 			Vector3 attachPoint = AttachedTo.Collision.ClosestPoint (transform.position);
@@ -20,6 +23,8 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 		}
 
 		aimDirection = transform.forward;
+
+		appearTween = transform.DOScale (Vector3.zero, 0.3f).From ().SetEase (Ease.OutBack);
 	}
 
 	public void Attach(Landable to, Vector3 location, Vector3 forward) {
@@ -64,6 +69,9 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 	}
 
 	public void FireAction() {
+		if (appearTween != null && appearTween.IsPlaying())
+			return;
+		
 		if (SeedControl.SceneInstance.UseSeed ()) {
 			SeedPod projectile = Instantiate<SeedPod> (SeedPodProjectile, CannonHead.transform.position, Quaternion.LookRotation (aimDirection, transform.up));
 			projectile.Velocity = aimDirection * GameParametersControl.ProjectileSpeed;
