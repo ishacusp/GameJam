@@ -34,6 +34,7 @@ public class CannonPlant : MonoBehaviour, IPlayerControllable {
 		Debug.DrawRay (location, outward * 5f, Color.cyan, 10f);
 
 		transform.rotation = Quaternion.LookRotation (parallelForward, outward);
+		transform.SetParent (to.transform);
 	}
 
 	void OnDrawGizmos() {
