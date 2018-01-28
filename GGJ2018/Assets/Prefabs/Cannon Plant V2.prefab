@@ -223,7 +223,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 891264b4d2bb44d409c253e1b61bf853, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ff3f7ee610ffa9a438859af06f397505, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -309,6 +309,6 @@ MonoBehaviour:
   CannonHead: {fileID: 4031973503534544}
   SeedPodProjectile: {fileID: 114446917946924552, guid: 420c6985428bd4436ac64a7e3c2230f5,
     type: 2}
-  _GrowSound: {fileID: 0}
+  _GrowSound: {fileID: 82889379013894218}
   MinAngleDownward: 20
   MaxAngleDownward: 110

@@ -72,6 +72,10 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		ReturnControl ();
 	}
 
+	public void OnOutOfBounds() {
+		ReturnControl ();
+	}
+
 	void ReturnControl() {
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
 		Destroy (gameObject);
@@ -85,6 +89,16 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		var plant = Instantiate<CannonPlant> (GrowOnLanding);
 		plant.Attach (landable, landPoint, transform.forward);
 		PlayerControl.SceneInstance.ActiveControllable = plant;
+
+		var plantParticles = GetComponentInChildren<ParticleSystem> ();
+		plantParticles.transform.SetParent (landable.transform);
+		plantParticles.Play ();
+		Destroy (plantParticles, 2f);
+
+		var trail = GetComponentInChildren<TrailRenderer> ();
+		trail.transform.SetParent (null);
+		Destroy (trail, trail.time);
+
 		Destroy (gameObject);
 	}
 
