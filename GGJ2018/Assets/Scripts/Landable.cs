@@ -52,7 +52,7 @@ public class Landable : MonoBehaviour {
 			g.transform.localPosition = point;
 			Vector3 forward = Vector3.Cross (startPoint, point);
 			g.transform.rotation = Quaternion.LookRotation (forward, point);
-			g.transform.Rotate(g.transform.up, Random.Range(-15f, 15f));
+			g.transform.Rotate(g.transform.position - transform.position, Random.Range(-60f, 60f));
 
 			float delay = (Vector3.Angle (point, startPoint) / 180f);
 			g.transform.DOScale (Vector3.zero, 0.2f).From ().SetDelay (delay).SetEase (Ease.OutBack);
