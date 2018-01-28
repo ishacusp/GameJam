@@ -30,6 +30,7 @@ public class SkyboxCrossfade : MonoBehaviour {
 	void Update() {
 		if (state == "transitioning" && transitionDuration != 0) {
 			float delta = (float)DateTime.Now.Subtract (startTime).TotalSeconds;
+//			Debug.Log (delta);
 			if (delta < transitionDuration) {
 				// mid transition
 				material.SetFloat ("_Blend", delta / transitionDuration);
@@ -37,7 +38,7 @@ public class SkyboxCrossfade : MonoBehaviour {
 				// finished transition
 				state = "pausing";
 			}
-		} else if (state == "pausing" && pauseDuration != 0) {
+		} else if (state == "pausing") {
 			double delta = DateTime.Now.Subtract (startTime).TotalSeconds;
 			if (delta > pauseDuration) {
 				startTime = DateTime.Now;

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 5a4e7327f5ab248c188cd519e96d7408, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2d21bdf10ba0aaa4084fbc7099c68ce0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17888698, g: 0.123742886, b: 0.1317021, a: 1}
+  m_IndirectSpecularColor: {r: 0.17929238, g: 0.12413255, b: 0.13212395, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -802,6 +802,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 311730387}
+--- !u!1001 &350906362
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.2463512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.8495367
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -11.137093
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569383260978304, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 30f3c70aaf66646a881e596ac05b9cd2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &369966845
 GameObject:
   m_ObjectHideFlags: 0
@@ -982,51 +1024,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &505344813
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 505344815}
-  - component: {fileID: 505344814}
-  m_Layer: 0
-  m_Name: Skybox Crossfade
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &505344814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 505344813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 931ed02c188a64ac6b6d8104350e08e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  material: {fileID: 0}
-  transitionDuration: 8
-  pauseDuration: 2
-  materials: []
-  currentSkyboxIndex: 0
---- !u!4 &505344815
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 505344813}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2463512, y: 1.8495367, z: -11.137093}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513227467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4013,7 +4010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584459911
 GameObject:
