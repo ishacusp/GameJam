@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.17943254, g: 0.12425164, b: 0.13227993, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8298bb3aa23e338429335cac69ae8b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Graphic: {fileID: 270147539}
   Display: {fileID: 270147540}
 --- !u!1 &463972397
 GameObject:
@@ -1616,6 +1617,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4862761165505142, guid: 96d035115db7ade4faab045e65d1dff9, type: 2}
       propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114020928045434914, guid: 96d035115db7ade4faab045e65d1dff9,
+        type: 2}
+      propertyPath: projectileSpeed
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
