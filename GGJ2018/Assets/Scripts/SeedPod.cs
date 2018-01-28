@@ -82,6 +82,10 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		ReturnControl ();
 	}
 
+	public void OnOutOfBounds() {
+		ReturnControl ();
+	}
+
 	void ReturnControl() {
 		PlayerControl.SceneInstance.ActiveControllable = Creator;
 		Destroy (gameObject);
