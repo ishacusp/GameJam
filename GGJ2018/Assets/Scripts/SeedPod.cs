@@ -24,8 +24,6 @@ public class SeedPod : MonoBehaviour, IPlayerControllable, IBlackHoleCapturable 
 		}
 	}
 
-
-
 	void Start() {
 		aim = new GameObject ("Aim").transform;
 		aim.transform.SetParent (transform);

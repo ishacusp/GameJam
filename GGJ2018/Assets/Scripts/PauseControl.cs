@@ -30,6 +30,7 @@ public class PauseControl : MonoBehaviour {
 		Time.timeScale = 1f;
 
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 
 		Paused = false;
 
@@ -37,7 +38,9 @@ public class PauseControl : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Cursor.lockState != CursorLockMode.Locked)
+		if (Input.GetKey (KeyCode.Escape))
+			Pause ();
+		else if (Cursor.lockState != CursorLockMode.Locked)
 			Pause ();
 	}
 
@@ -48,6 +51,7 @@ public class PauseControl : MonoBehaviour {
 		Time.timeScale = 0f;
 
 		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 
 		Paused = true;
 
@@ -67,6 +71,7 @@ public class PauseControl : MonoBehaviour {
 		Time.timeScale = 1f;
 
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 
 		Paused = false;
 
